@@ -1,68 +1,80 @@
 import React from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import CustomTextInput from './TextInput';
 import CustomButton from './Button';
 import SocialButton from './SocialButton';
+import {useNavigation} from '@react-navigation/native';
 
 const SignUpPage = () => {
+  const nav = useNavigation();
   return (
-    <View style={styles.container}>
-      <Text
-        style={{
-          fontSize: 26,
-          fontWeight: 600,
-          color: '#000',
-          marginBottom: 13,
-        }}>
-        Sign Up
-      </Text>
-      <Text style={{fontSize: 13, color: '#000', marginBottom: 30}}>
-        Sign Up with one of the following options
-      </Text>
-
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          marginBottom: 52,
-        }}>
-          
-        <SocialButton IconName="facebook" />
-        <SocialButton IconName="google" />
-        <SocialButton IconName="apple" />
-      </View>
-
-      <CustomTextInput
-        isBlackText={false}
-        text="Enter Your Name"
-        title="Name"
-        IconName="check-circle"
-      />
-      <CustomTextInput
-        isBlackText={false}
-        text="Enter Your Email"
-        title="Email"
-        IconName="check-circle"
-      />
-
-      <CustomTextInput
-        isBlackText={true}
-        text="Enter Your Password"
-        title="Password"
-      />
-
-      <CustomButton buttonName="Create account" />
-
-      <View style={styles.centeredContent}>
-        <Text style={{fontSize: 12, color: '#000', marginRight: 3}}>
-          Already Have an Account?
+    <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+      <View style={styles.container}>
+        <Text
+          style={{
+            fontSize: 26,
+            fontWeight: 600,
+            color: '#000',
+            marginBottom: 13,
+          }}>
+          Sign Up
+        </Text>
+        <Text style={{fontSize: 13, color: '#000', marginBottom: 30}}>
+          Sign Up with one of the following options
         </Text>
 
-        <TouchableOpacity>
-          <Text style={{fontSize: 11, color: '#DC1F26'}}>Please Login.</Text>
-        </TouchableOpacity>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginBottom: 52,
+          }}>
+          <SocialButton IconName="facebook" />
+          <SocialButton IconName="google" />
+          <SocialButton IconName="apple" />
+        </View>
+
+        <CustomTextInput
+          isBlackText={false}
+          text="Enter Your Name"
+          title="Name"
+          IconName="check-circle"
+        />
+        <CustomTextInput
+          isBlackText={false}
+          text="Enter Your Email"
+          title="Email"
+          IconName="check-circle"
+        />
+
+        <CustomTextInput
+          isBlackText={true}
+          text="Enter Your Password"
+          title="Password"
+        />
+
+        <CustomButton
+          buttonName="Create account"
+          onPress={() => nav.navigate('VerifyPage')}
+        />
+
+        <View style={styles.centeredContent}>
+          <Text style={{fontSize: 12, color: '#000', marginRight: 3}}>
+            Already Have an Account?
+          </Text>
+
+          <TouchableOpacity onPress={() => nav.navigate('LogInPage')}>
+            <Text style={{fontSize: 11, color: '#DC1F26'}}>Please Login.</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -72,10 +84,16 @@ const styles = StyleSheet.create({
     paddingTop: 43,
     paddingLeft: 25,
     paddingRight: 25,
+    paddingBottom: 25,
+    flex: 1,
   },
 
   centeredContent: {
     flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  scrollViewContainer: {
+    flexGrow: 1,
     justifyContent: 'center',
   },
 });

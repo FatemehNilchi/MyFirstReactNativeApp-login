@@ -42,7 +42,6 @@ const VerifyPage = () => {
           marginBottom: 33,
           gap: 11,
         }}>
-
         <VerifyInput
           Value={input1 !== ''}
           onChangeText={text => setInput1(text)}></VerifyInput>
@@ -55,7 +54,6 @@ const VerifyPage = () => {
         <VerifyInput
           Value={input4 !== ''}
           onChangeText={text => setInput4(text)}></VerifyInput>
-          
       </View>
 
       <CustomButton buttonName="Verify" onPress={handleVerify} />
@@ -65,10 +63,11 @@ const VerifyPage = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFFBFC',
+    backgroundColor: '#fffBFC',
     paddingTop: 43,
     paddingLeft: 25,
     paddingRight: 25,
+    paddingBottom: 25,
     flex: 1,
     alignItems: 'center',
   },
