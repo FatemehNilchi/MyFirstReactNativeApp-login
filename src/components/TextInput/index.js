@@ -14,15 +14,7 @@ const CustomTextInput = props => {
 
   return (
     <View>
-      <Text
-        style={{
-          fontSize: 13,
-          fontWeight: 500,
-          color: '#000',
-          marginBottom: 17,
-        }}>
-        {props.title}
-      </Text>
+      <Text style={styles.inputTitle}>{props.title}</Text>
 
       <View style={[styles.inputContainer, {width: screenWidth - 50}]}>
         <TextInput
@@ -52,6 +44,12 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  inputTitle: {
+    fontSize: 13,
+    fontWeight: '500',
+    color: '#000',
+    marginBottom: 17,
   },
   input: {
     fontSize: 16,

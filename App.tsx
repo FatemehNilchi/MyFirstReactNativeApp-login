@@ -1,7 +1,7 @@
 import React from 'react';
-import LogInPage from './loginComponents/LogInPage';
-import SignUpPage from './loginComponents/SignUpPage';
-import VerifyPage from './loginComponents/VerifyPage';
+import LogInPage from './src/pages/LogIn';
+import SignUpPage from './src/pages/SignUp';
+import VerifyPage from './src/pages/Verify';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 

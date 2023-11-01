@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Text, Alert} from 'react-native';
-import CustomButton from './Button';
-import VerifyInput from './VerifyInput';
+import CustomButton from '../../components/Button';
+import VerifyInput from '../../components/VerifyInput';
+import mainStyles from '../../constants/styles';
 
 const VerifyPage = () => {
   const [input1, setInput1] = useState('');
@@ -20,28 +21,14 @@ const VerifyPage = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text
-        style={{
-          fontSize: 26,
-          fontWeight: 600,
-          color: '#000',
-          marginBottom: 13,
-        }}>
-        Verify your email
-      </Text>
+    <View style={[mainStyles.container, {alignItems: 'center'}]}>
+      <Text style={mainStyles.mainHeaderText}>Verify your email</Text>
 
-      <Text style={{fontSize: 13, color: '#000', marginBottom: 30}}>
+      <Text style={mainStyles.subHeaderText}>
         We have sent a code to your email
       </Text>
 
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          marginBottom: 33,
-          gap: 11,
-        }}>
+      <View style={styles.inputStyle}>
         <VerifyInput
           Value={input1 !== ''}
           onChangeText={text => setInput1(text)}></VerifyInput>
@@ -62,19 +49,11 @@ const VerifyPage = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fffBFC',
-    paddingTop: 43,
-    paddingLeft: 25,
-    paddingRight: 25,
-    paddingBottom: 25,
-    flex: 1,
-    alignItems: 'center',
-  },
-
-  centeredContent: {
+  inputStyle: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
+    marginBottom: 33,
+    gap: 11,
   },
 });
 
